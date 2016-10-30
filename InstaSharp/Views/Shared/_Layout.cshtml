@@ -6,17 +6,21 @@
     <title>@ViewBag.Title - InstaSharp</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Pacifico:400|Inconsolata:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,700|Pacifico:400|Inconsolata:400,700" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" />
 </head>
 <body>
-    <header>
-        <div class="wrapper clearfix">
-            <a class="title" href="~/">InstaSharp</a>
+    @{ bool hideHeader = ViewBag.Title == "Register" || ViewBag.Title == "Log in"; }
+    @if (!hideHeader)
+    {
+        <header>
+            <div class="wrapper clearfix">
+                <a class="title" href="~/">InstaSharp</a>
 
-            @Html.Partial("_LoginPartial")
-        </div>
-    </header>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </header>
+    }
 
     <main>
         @RenderBody()
@@ -26,4 +30,5 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
+
 </html>

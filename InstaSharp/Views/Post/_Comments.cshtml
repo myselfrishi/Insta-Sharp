@@ -13,7 +13,7 @@
         {
             <li>
                 <strong>
-                    <a href="@Url.Action("Index", "Profile", new { @id = comment.User.UserName })">
+                    <a href="@Url.Action("Details", "Profile", new { @id = comment.User.UserName })">
                         @comment.User.UserName
                     </a>
                 </strong>
@@ -26,7 +26,7 @@
         {
             <li class="hidden">
                 <strong>
-                    <a href="@Url.Action("Index", "Profile", new { @id = comment.User.UserName })">
+                    <a href="@Url.Action("Details", "Profile", new { @id = comment.User.UserName })">
                         @comment.User.UserName
                     </a>
                 </strong>

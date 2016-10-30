@@ -12,12 +12,6 @@ namespace InstaSharp
             routes.AppendTrailingSlash = true;
 
             routes.MapRoute(
-                name: "Profile",
-                url: "{id}",
-                defaults: new { controller = "Profile", action = "Index" }
-            );
-
-            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

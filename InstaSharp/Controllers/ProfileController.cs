@@ -23,7 +23,7 @@ namespace InstaSharp.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public async Task<ActionResult> Index(string id)
+        public async Task<ActionResult> Details(string id)
         {
             var userId = id ?? string.Empty;
 
@@ -40,12 +40,14 @@ namespace InstaSharp.Controllers
 
             // Find profile details
             var user = await _userService.GetByUsernameOrId(userId, _ctx);
+            if (user == null) return Redirect("~/");
+
             var model = new ProfileViewModel
             {
                 User = user,
                 PostCount = user.Posts != null && user.Posts.Any() ? user.Posts.Count : 0,
-                FollowerCount = 0,
-                FollowingCount = 0,
+                FollowerCount = await _followService.FollowerCount(user.UserName, _ctx),
+                FollowingCount = await _followService.FollowingCount(user.UserName, _ctx),
                 Following = false,
                 OwnProfile = false
             };

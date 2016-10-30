@@ -3,11 +3,13 @@
     ViewBag.Title = "Register";
 }
 
-<div class="inner-wrapper white">
+<div class="thin-wrapper">
+    <p class="title center">InstaSharp</p>
+
     @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
-        <h4 class="subtitle">Sign up to see photos and videos from your friends.</h4>
+        <h4 class="subtitle center">Sign up to see photos and videos from your friends.</h4>
 
         @Html.ValidationSummary("", new { @class = "text-danger" })
 

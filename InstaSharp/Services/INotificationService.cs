@@ -73,9 +73,9 @@ namespace InstaSharp.Services
         /// <returns></returns>
         public Task<List<Notification>> GetNotifications(string userName, InstaDbContext _ctx, bool includeViewed = false)
         {
-            var notifications = _ctx.Notifications.Where(n => n.ToUser.UserName == userName /*&&
-                n.Viewed == includeViewed ? n.Viewed : false*/);
-            return notifications.ToListAsync();
+            var notifications = _ctx.Notifications.Where(n => n.ToUser.UserName == userName);
+
+            return includeViewed ? notifications.ToListAsync() : notifications.Where(n => !n.Viewed).ToListAsync();
         }
     }
 

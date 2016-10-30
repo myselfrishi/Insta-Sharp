@@ -123,7 +123,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account\AccountViewModels.cs" />
-    <Compile Include="Models\Account\IdentityModels.cs" />
+    <Compile Include="Models\Account\User.cs" />
     <Compile Include="Models\Account\ManageViewModels.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Following.cs" />

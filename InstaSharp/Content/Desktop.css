@@ -1,20 +1,18 @@
 ﻿* {
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
+  font-family: "Gotham Rounded", "Arial", sans-serif;
+  text-rendering: optimizeLegibility;
 }
 body {
   background: #fafafa;
-  color: #333333;
-  font: 1em/1.4 "Roboto", sans-serif;
+  color: #434343;
+  font: 0.9em/1.4 "Gotham Rounded", "Arial", sans-serif;
   margin: 0 auto;
-  font-weight: 300;
+  font-weight: 400;
 }
 a {
   color: #003569;
   text-decoration: none;
-}
-strong {
-  font-weight: 400;
 }
 header {
   background: #ffffff;
@@ -52,12 +50,17 @@ header .menu-actions li {
 }
 header .menu-actions li i {
   font-size: 1.5em;
-  color: #4a4a4a;
+  color: #111;
+}
+header .menu-actions a {
+  font-weight: 600;
+  color: #3897f0;
+  font-size: 1.1em;
 }
 header .menu-actions .count {
   padding: 3px 6px;
   border-radius: 50%;
-  background: lightcoral;
+  background: darkred;
   color: #fff;
   position: absolute;
   top: -10px;
@@ -86,15 +89,14 @@ main {
   font-size: .85em;
 }
 .post__top a {
-  font-weight: 400;
-  color: #333333;
+  font-weight: bold;
+  color: #434343;
 }
 .post__bottom {
   padding: 1em;
 }
 .post__user {
-  font-weight: 400;
-  color: #333333;
+  color: #434343;
   margin-left: .25em;
   display: inline-block;
 }
@@ -110,8 +112,7 @@ main {
   margin: .35em 0;
 }
 .post__comments strong a {
-  color: #333333;
-  font-weight: 400;
+  color: #434343;
 }
 .post__img {
   display: block;
@@ -123,13 +124,20 @@ main {
 .post__view-comments {
   color: #999999;
 }
+.post .message {
+  margin: .5em 0 0 0;
+  padding: 0;
+}
+.post.tight {
+  margin: 1em 0;
+}
 .like-button {
   font-size: 1.5em;
   display: inline-block;
   vertical-align: top;
 }
 .like-button i {
-  color: #333333;
+  color: #434343;
 }
 .like-button.liked i {
   color: #ed4956;
@@ -209,6 +217,17 @@ main {
   border-radius: 3px;
   margin: 1em auto;
 }
+.thin-wrapper {
+  width: 90%;
+  max-width: 350px;
+  margin: 0 auto;
+  display: block;
+  background: #ffffff;
+  padding: 1em;
+  border: 1px solid #efefef;
+  border-radius: 3px;
+  margin: 1em auto;
+}
 .fa {
   font-family: 'FontAwesome' !important;
   color: inherit;
@@ -218,16 +237,20 @@ main {
 .gray {
   color: #999999;
 }
+.center {
+  text-align: center;
+}
 .title {
   font-family: "Pacifico", sans-serif;
   color: #111;
-  font-size: 3em;
+  font-size: 2em;
+  margin: .5em auto;
 }
 .subtitle {
   text-transform: uppercase;
   color: #999999;
   font-size: 1em;
-  font-weight: 500;
+  font-weight: 600;
   margin: 0 0 1.5em 0;
 }
 .field-validation-error {
@@ -241,14 +264,19 @@ input[type="text"],
 input[type="password"],
 textarea {
   border-radius: 3px;
-  border: 1px solid #efefef;
-  padding: .4em .5em;
+  border: 1px solid #dbdbdb;
+  padding: .5em .6em;
   display: block;
   width: 100%;
   font-size: 1em;
   margin-top: 1em;
   outline: none;
   font-weight: 300;
+}
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  border-color: #c2c2c2;
 }
 input[type="text"].no-border,
 input[type="password"].no-border,
@@ -293,5 +321,15 @@ button,
   padding: .4em 1.5em;
   cursor: pointer;
   text-align: center;
+}
+.follow-button {
+  background: transparent;
+  border-color: #3897f0;
+  color: #3897f0;
+}
+.follow-button.following {
+  background: #70c050;
+  border-color: #70c050;
+  color: #fff;
 }
 /*# sourceMappingURL=Desktop.css.map */

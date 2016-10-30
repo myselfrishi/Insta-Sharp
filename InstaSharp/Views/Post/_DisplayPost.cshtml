@@ -6,10 +6,10 @@
 
 <div class="post">
     <div class="post__top">
-        <a href="@Url.Action("Index", "Profile", new { @id = Model.User.UserName })">
+        <a href="@Url.Action("Details", "Profile", new { @id = Model.User.UserName })">
             <img src="@Url.Content(String.Format("~/Images/{0}", Model.User.GetPhoto()))" />
         </a>
-        <a href="@Url.Action("Index", "Profile", new { @id = Model.User.UserName })" class="post__user">
+        <a href="@Url.Action("Details", "Profile", new { @id = Model.User.UserName })" class="post__user">
             @Model.User.UserName
         </a>
         <time>@Model.Timestamp.ToShortDateString()</time>
@@ -27,7 +27,7 @@
             <strong><span class="num-likes">@Model.Likes.Count()</span> likes</strong>
         </div>
 
-        <p class="post__meta">@Model.Description</p>
+        <p class="post__meta">@Html.Raw(Model.Description.IncludeHashtags())</p>
 
         @Html.Partial("~/Views/Post/_Comments.cshtml", Model.Comments)
 

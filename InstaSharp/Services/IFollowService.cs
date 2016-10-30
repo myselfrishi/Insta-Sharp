@@ -81,6 +81,28 @@ namespace InstaSharp.Services
             );
             return following != null;
         }
+
+        /// <summary>
+        /// Get the total number of users following the provided user.
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="_ctx"></param>
+        /// <returns></returns>
+        public async Task<int> FollowerCount(string userName, InstaDbContext _ctx)
+        {
+            return await _ctx.Following.Where(f => f.UserFollowed.UserName == userName).CountAsync();
+        }
+
+        /// <summary>
+        /// Get the total number of users the provided user is following.
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="_ctx"></param>
+        /// <returns></returns>
+        public async Task<int> FollowingCount(string userName, InstaDbContext _ctx)
+        {
+            return await _ctx.Following.Where(f => f.UserFollowing.UserName == userName).CountAsync();
+        }
     }
 
     public interface IFollowService
@@ -88,5 +110,7 @@ namespace InstaSharp.Services
         Task<bool> Follow(string followerName, string followedName, InstaDbContext _ctx);
         Task<bool> Unfollow(string followerName, string followedName, InstaDbContext _ctx);
         Task<bool> IsFollowing(string followerName, string followedName, InstaDbContext _ctx);
+        Task<int> FollowerCount(string userName, InstaDbContext _ctx);
+        Task<int> FollowingCount(string userName, InstaDbContext _ctx);
     }
 }

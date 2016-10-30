@@ -181,9 +181,11 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LikeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\NotificationController.cs" />
+    <Compile Include="Controllers\NotificationsController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -231,6 +233,8 @@
     <Content Include="Fonts\gotham\gothamrnd-medium.svg" />
     <Content Include="Fonts\myriad\myriadpro-bold.svg" />
     <Content Include="Fonts\myriad\myriadpro-regular.svg" />
+    <Content Include="Fonts\proximanova-reg-webfont.svg" />
+    <Content Include="Fonts\proximanova-sbold-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Desktop.less" />
     <Content Include="Content\Tablet.less" />
@@ -278,9 +282,15 @@
     <Content Include="Fonts\myriad\myriadpro-regular.eot" />
     <Content Include="Fonts\myriad\myriadpro-regular.ttf" />
     <Content Include="Fonts\myriad\myriadpro-regular.woff" />
+    <Content Include="Fonts\proximanova-reg-webfont.eot" />
+    <Content Include="Fonts\proximanova-reg-webfont.ttf" />
+    <Content Include="Fonts\proximanova-reg-webfont.woff" />
+    <Content Include="Fonts\proximanova-sbold-webfont.eot" />
+    <Content Include="Fonts\proximanova-sbold-webfont.ttf" />
+    <Content Include="Fonts\proximanova-sbold-webfont.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\Default_Profile.jpg" />
-    <Content Include="Images\Post.png" />
+    <Content Include="Images\Profiles\ryan\profile-pic.jpg" />
     <Content Include="Images\Uploads\ryan\jmghgwbx1ei.png" />
     <Content Include="Scripts\InstaSharp.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -335,14 +345,15 @@
     <Content Include="Views\Post\_Comments.cshtml" />
     <Content Include="Views\Post\_AddComment.cshtml" />
     <Content Include="Views\Post\_DisplayPost.cshtml" />
-    <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Profile\Details.cshtml" />
+    <Content Include="Views\Notifications\Index.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Comment\" />
     <Folder Include="Views\Follow\" />
     <Folder Include="Views\Like\" />
-    <Folder Include="Views\Notification\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

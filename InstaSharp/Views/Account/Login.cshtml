@@ -4,7 +4,9 @@
     ViewBag.Title = "Log in";
 }
 
-<div class="inner-wrapper white">
+<div class="thin-wrapper">
+    <p class="title center">InstaSharp</p>
+
     @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
