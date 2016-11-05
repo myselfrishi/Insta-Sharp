@@ -6,7 +6,7 @@
     <title>@ViewBag.Title - InstaSharp</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,700|Pacifico:400|Inconsolata:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Pacifico:400|Inconsolata:400,700" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" />
 </head>
 <body>
@@ -26,9 +26,13 @@
         @RenderBody()
     </main>
 
+    <div class="modal">
+        <button class="modal__close link" title="Close"><i class="fa fa-times"></i> </button>
+        <div class="modal__content"></div>
+    </div>
+
     @Scripts.Render("~/bundles/js")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
-
 </html>

@@ -1,6 +1,41 @@
 ﻿
 $(function () {
 
+    // Load modal window with content
+    $('.modal-link').click(function (e) {
+        e.preventDefault();
+
+        // Modal and content
+        var modal = $('.modal'),
+            modalContent = $('.modal__content');
+
+        // Ajax request data
+        var link = $(this),
+            url = link.attr('data-ajax-url'),
+            method = link.attr('data-ajax-method');
+
+        // Handle the ajax response, display the page in a modal
+        var handleResponse = function (response) {
+            modalContent.empty().append(response);
+            modal.addClass('active');
+        };
+
+        // Make the ajax request
+        if (method == 'post') {
+            $.post(url, {}, handleResponse);
+        } else {
+            $.get(url, {}, handleResponse);
+        }
+    });
+
+    // Close modal
+    $('.modal__close').click(function (e) {
+        if ($('.modal').hasClass('active')) {
+            $('.modal').removeClass('active');
+            $('.modal__content').empty();
+        }
+    });
+
     // Add comment to post
     $('.comment-form').submit(function (e) {
         e.preventDefault();
@@ -24,7 +59,15 @@ $(function () {
     // Show extra comments
     $('.post__view-comments').click(function (e) {
         e.preventDefault();
-        $(this).next('.post__comments').find('li.hidden').removeClass('hidden');
+
+        var hidden = $(this).next('.post__comments').find('li.hidden'),
+            visible = $(this).next('.post__comments').find('li.visible');
+
+        if (hidden.length > 0) {
+            hidden.removeClass('hidden').addClass('visible');
+        } else {
+            visible.removeClass('visible').addClass('hidden');
+        }
     });
 
     // Toggle like on post
@@ -33,7 +76,7 @@ $(function () {
         var btn = $(this),
             likes = btn.next('strong').find('.num-likes').eq(0),
             currentLikes = parseInt(likes.html()),
-            postId = $('#postId').val();
+            postId = btn.attr('data-post-id');
 
         $.post('/Like/Toggle', { postId: postId }, function (response) {
             // Toggle class to liked

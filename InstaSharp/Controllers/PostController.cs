@@ -25,6 +25,9 @@ namespace InstaSharp.Controllers
             if (post == null)
                 return HttpNotFound();
 
+            if (Request.IsAjaxRequest())
+                return PartialView(post);
+
             return View(post);
         }
 
@@ -43,7 +46,7 @@ namespace InstaSharp.Controllers
             post.User = await _ctx.Users.FirstOrDefaultAsync(u => u.UserName == User.Identity.Name);
 
             // Save the image to server
-            if (imageFile.ContentLength > 0)
+            if (imageFile != null && imageFile.ContentLength > 0)
             {
                 var fileName = Path.GetRandomFileName().Replace(".", "") + ".png";
                 var directory = Server.MapPath(String.Format("~/Images/Uploads/{0}/", User.Identity.Name));
@@ -54,6 +57,10 @@ namespace InstaSharp.Controllers
                 var path = Path.Combine(directory, fileName);
                 imageFile.SaveAs(path);
                 post.Image = fileName;
+            }
+            else
+            {
+                ModelState.AddModelError("Image", "Please select an image to share.");
             }
 
             // Store post in db

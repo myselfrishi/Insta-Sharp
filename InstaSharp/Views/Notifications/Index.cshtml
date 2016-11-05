@@ -17,7 +17,7 @@
                     <a href="@Url.Action("Details", "Profile", new { @id = item.FromUser.UserName })" class="post__user">
                         @item.FromUser.UserName
                     </a>
-                    <time>@item.Timestamp.ToShortDateString()</time>
+                    <time title="@item.Timestamp.ToString("D")">@item.Timestamp.ToString().FriendlyDate()</time>
 
                     <p class="message">@item.Message</p>
                 </div>

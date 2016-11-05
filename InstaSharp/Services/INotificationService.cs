@@ -47,6 +47,8 @@ namespace InstaSharp.Services
         /// <returns></returns>
         public async Task SendNotification(Notification notification, InstaDbContext _ctx)
         {
+            if (notification == null || notification.FromUser.Id == notification.ToUser.Id) return;
+
             _ctx.Notifications.Add(notification);
             await _ctx.SaveChangesAsync();
         }

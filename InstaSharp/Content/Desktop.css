@@ -1,12 +1,12 @@
 ﻿* {
   box-sizing: border-box;
-  font-family: "Gotham Rounded", "Arial", sans-serif;
+  font-family: "proxima-nova", sans-serif;
   text-rendering: optimizeLegibility;
 }
 body {
   background: #fafafa;
-  color: #434343;
-  font: 0.9em/1.4 "Gotham Rounded", "Arial", sans-serif;
+  color: #444444;
+  font: 0.9em/1.4 "proxima-nova", sans-serif;
   margin: 0 auto;
   font-weight: 400;
 }
@@ -74,6 +74,8 @@ main {
   margin: 2em 0;
   border: 1px solid #efefef;
   border-radius: 3px;
+  width: 100%;
+  display: block;
 }
 .post__top {
   padding: 1em;
@@ -86,17 +88,17 @@ main {
 .post__top time {
   color: #999999;
   float: right;
-  font-size: .85em;
+  font-size: 1em;
 }
 .post__top a {
   font-weight: bold;
-  color: #434343;
+  color: #444444;
 }
 .post__bottom {
   padding: 1em;
 }
 .post__user {
-  color: #434343;
+  color: #444444;
   margin-left: .25em;
   display: inline-block;
 }
@@ -104,15 +106,17 @@ main {
   float: right;
 }
 .post__comments {
-  padding: 0 0 .75em 0;
+  padding: 0 0 1em 0;
   list-style: none;
   border-bottom: 1px solid #ffffff;
+  max-height: 300px;
+  overflow: auto;
 }
 .post__comments li {
   margin: .35em 0;
 }
 .post__comments strong a {
-  color: #434343;
+  color: #444444;
 }
 .post__img {
   display: block;
@@ -131,13 +135,37 @@ main {
 .post.tight {
   margin: 1em 0;
 }
+.post__left {
+  display: table-cell;
+  vertical-align: middle;
+  width: 540px;
+  height: 450px;
+  background: #fff;
+  text-align: center;
+  /*border-right: 1px solid @colour-border;*/
+}
+.post__right {
+  display: table-cell;
+  vertical-align: top;
+  width: 360px;
+  position: relative;
+}
+.post__right .comment-form {
+  display: block;
+  width: 90%;
+  position: absolute;
+  bottom: 1em;
+  left: 1em;
+  margin-top: 1em;
+}
 .like-button {
-  font-size: 1.5em;
   display: inline-block;
   vertical-align: top;
 }
 .like-button i {
-  color: #434343;
+  font-size: 1.5em;
+  color: #444444;
+  margin: 0;
 }
 .like-button.liked i {
   color: #ed4956;
@@ -180,10 +208,11 @@ main {
   margin: 1em 0 0 0;
 }
 .profile__bottom ol li {
-  width: calc(33.3% - 2em);
+  width: calc(33.3% - 1.5em);
   vertical-align: top;
-  margin: .75em;
+  /*margin: .75em;*/
   display: inline-block;
+  margin: .5em;
 }
 .profile__bottom ol li img {
   width: 100%;
@@ -191,7 +220,7 @@ main {
   display: table-cell;
 }
 .wrapper {
-  width: 90%;
+  width: 100%;
   max-width: 900px;
   margin: 0 auto;
   display: block;
@@ -237,6 +266,9 @@ main {
 .gray {
   color: #999999;
 }
+.no-margin {
+  margin: 0 !important;
+}
 .center {
   text-align: center;
 }
@@ -269,7 +301,7 @@ textarea {
   display: block;
   width: 100%;
   font-size: 1em;
-  margin-top: 1em;
+  margin: 1em 0 .5em 0;
   outline: none;
   font-weight: 300;
 }
@@ -313,23 +345,66 @@ input[type="radio"] {
 }
 button,
 .button {
-  background: #3897f0;
   border: 1px solid #3897f0;
-  color: #ffffff;
   border-radius: 3px;
   display: inline-block;
   padding: .4em 1.5em;
   cursor: pointer;
   text-align: center;
-}
-.follow-button {
+  font-size: 1.1em;
+  font-weight: 600;
   background: transparent;
   border-color: #3897f0;
   color: #3897f0;
 }
-.follow-button.following {
+button.following,
+.button.following {
   background: #70c050;
   border-color: #70c050;
   color: #fff;
+}
+button.link,
+.button.link {
+  border: 0;
+  padding: 0;
+  font-weight: normal;
+  font-size: 1em;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+}
+.modal.active {
+  z-index: 100;
+  display: block;
+}
+.modal__close {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+}
+.modal__close i {
+  color: #ffffff;
+  font-size: 2em;
+  cursor: pointer;
+  margin: 0;
+}
+.modal__content {
+  background: #fff;
+  width: 100%;
+  max-width: 900px;
+  position: absolute;
+  top: 100px;
+  left: calc(50% - 450px);
+}
+.modal__content .post {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
 }
 /*# sourceMappingURL=Desktop.css.map */

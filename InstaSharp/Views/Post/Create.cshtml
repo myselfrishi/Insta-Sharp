@@ -5,14 +5,14 @@
 }
 
 <div class="inner-wrapper white">
-    <h2 class="subtitle">Share something with the world</h2>
+    <h2 class="subtitle center">Share something with the world</h2>
 
     @using (Html.BeginForm("Create", "Post", FormMethod.Post, new { @enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <input type="file" name="imageFile" id="imageFile" />
+        <input type="file" name="imageFile" id="imageFile" required/>
 
         @Html.TextAreaFor(model => model.Description, new { @placeholder = "Describe your post" })
         @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
