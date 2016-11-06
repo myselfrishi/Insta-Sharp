@@ -29,6 +29,7 @@ namespace InstaSharp
             container.RegisterType<IUserService, UserService>();
             container.RegisterType<IFollowService, FollowService>();
             container.RegisterType<INotificationService, NotificationService>();
+            container.RegisterType<IPostService, PostService>();
 
             return container;
         }

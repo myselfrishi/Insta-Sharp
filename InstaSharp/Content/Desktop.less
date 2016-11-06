@@ -122,8 +122,9 @@ main {
 
     &__user {
         color: @colour-text-main;
-        margin-left: .25em;
+        margin-left: .5em;
         display: inline-block;
+        vertical-align: middle;
     }
 
     &__likes {
@@ -167,7 +168,14 @@ main {
     }
 
     &.tight {
-        margin: 1em 0;
+        margin: 0 !important;
+        border: 1px solid @colour-border !important;
+        border-bottom: 0 !important;
+        border-radius: 0 !important;
+
+        &:last-child {
+            border-bottom: 1px solid @colour-border !important;
+        }
     }
 
     &__left {
@@ -175,9 +183,8 @@ main {
         vertical-align: middle;
         width: 540px;
         height: 450px;
-        background: #fff;
+        background: #000;
         text-align: center;
-        /*border-right: 1px solid @colour-border;*/
     }
 
     &__right {
@@ -251,6 +258,10 @@ main {
             li {
                 display: inline-block;
                 margin-right: 1em;
+            }
+
+            a {
+                color: @colour-text-main;
             }
         }
     }
@@ -478,6 +489,10 @@ button, .button {
             margin: 0;
             border: 0;
             border-radius: 0;
+        }
+
+        .inner-wrapper {
+            margin: 1em auto;
         }
     }
 }

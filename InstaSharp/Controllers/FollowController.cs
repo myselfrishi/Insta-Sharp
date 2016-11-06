@@ -29,13 +29,13 @@ namespace InstaSharp.Controllers
             var notification = await _notificationService.CreateNotification(userName, User.Identity.Name, string.Format("{0} has followed you.", User.Identity.Name), _ctx);
             await _notificationService.SendNotification(notification, _ctx);
 
-            return RedirectToAction("Index", "Profile", new { id = userName });
+            return RedirectToAction("Details", "Profile", new { id = userName });
         }
 
         public async Task<ActionResult> Unfollow(string userName)
         {
             await _followService.Unfollow(User.Identity.Name, userName, _ctx);
-            return RedirectToAction("Index", "Profile", new { id = userName });
+            return RedirectToAction("Details", "Profile", new { id = userName });
         }
     }
 }

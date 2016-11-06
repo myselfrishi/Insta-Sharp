@@ -42,3 +42,4 @@ C:\Users\Ryan Dean\Documents\Visual Studio 2013\Projects\MVC\SocialNetwork\Insta
 C:\Users\Ryan Dean\Documents\Visual Studio 2013\Projects\MVC\SocialNetwork\InstaSharp.Data\obj\Debug\InstaSharp.Data.csproj.GenerateResource.Cache
 C:\Users\Ryan Dean\Documents\Visual Studio 2013\Projects\MVC\SocialNetwork\InstaSharp.Data\obj\Debug\InstaSharp.Data.dll
 C:\Users\Ryan Dean\Documents\Visual Studio 2013\Projects\MVC\SocialNetwork\InstaSharp.Data\obj\Debug\InstaSharp.Data.pdb
+C:\Users\Ryan Dean\Documents\Visual Studio 2013\Projects\MVC\SocialNetwork\InstaSharp.Data\obj\Debug\InstaSharp.Data.csprojResolveAssemblyReference.cache

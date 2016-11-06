@@ -1,7 +1,9 @@
 ﻿using InstaSharp.Data.Context;
 using InstaSharp.Services;
 using InstaSharp.ViewModels;
+using System;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -59,6 +61,30 @@ namespace InstaSharp.Controllers
             }
 
             return View(model);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> Following(string id)
+        {
+            if (string.IsNullOrWhiteSpace(id))
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            var following = await _followService.GetFollowing(id, _ctx);
+            ViewBag.Message = String.Format("Following", id);
+
+            return PartialView("_UserList", following);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> Followers(string id)
+        {
+            if (string.IsNullOrWhiteSpace(id))
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            var followers = await _followService.GetFollowers(id, _ctx);
+            ViewBag.Message = String.Format("Followers", id);
+
+            return PartialView("_UserList", followers);
         }
     }
 }

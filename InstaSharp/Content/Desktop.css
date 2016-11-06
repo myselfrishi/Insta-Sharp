@@ -99,8 +99,9 @@ main {
 }
 .post__user {
   color: #444444;
-  margin-left: .25em;
+  margin-left: .5em;
   display: inline-block;
+  vertical-align: middle;
 }
 .post__likes strong {
   float: right;
@@ -133,16 +134,21 @@ main {
   padding: 0;
 }
 .post.tight {
-  margin: 1em 0;
+  margin: 0 !important;
+  border: 1px solid #efefef !important;
+  border-bottom: 0 !important;
+  border-radius: 0 !important;
+}
+.post.tight:last-child {
+  border-bottom: 1px solid #efefef !important;
 }
 .post__left {
   display: table-cell;
   vertical-align: middle;
   width: 540px;
   height: 450px;
-  background: #fff;
+  background: #000;
   text-align: center;
-  /*border-right: 1px solid @colour-border;*/
 }
 .post__right {
   display: table-cell;
@@ -201,6 +207,9 @@ main {
 .profile__head-right ul li {
   display: inline-block;
   margin-right: 1em;
+}
+.profile__head-right ul a {
+  color: #444444;
 }
 .profile__bottom ol {
   list-style: none;
@@ -406,5 +415,8 @@ button.link,
   margin: 0;
   border: 0;
   border-radius: 0;
+}
+.modal__content .inner-wrapper {
+  margin: 1em auto;
 }
 /*# sourceMappingURL=Desktop.css.map */

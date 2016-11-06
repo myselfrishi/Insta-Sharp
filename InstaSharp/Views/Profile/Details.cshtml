@@ -31,11 +31,33 @@
                 }
                 @Model.User.Bio
             </p>
-            <ul class="profile__meta">
-                <li><strong>@Model.PostCount</strong> posts</li>
-                <li><strong>@Model.FollowerCount</strong> followers</li>
-                <li><strong>@Model.FollowingCount</strong> following</li>
-            </ul>
+
+            @if (Request.IsAuthenticated)
+            {
+                <ul class="profile__meta">
+                    <li><strong>@Model.PostCount</strong> posts</li>
+                    <li>
+                        <a href="@Url.Action("Followers", "Profile", new { id = Model.User.UserName })"
+                           class="modal-link" data-ajax-url="@Url.Action("Followers", "Profile", new { id = Model.User.UserName })"
+                           data-ajax-method="get"><strong>@Model.FollowerCount</strong> followers</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Following", "Profile", new { id = Model.User.UserName })"
+                           class="modal-link" data-ajax-url="@Url.Action("Following", "Profile", new { id = Model.User.UserName })"
+                           data-ajax-method="get">
+                            <strong>@Model.FollowingCount</strong> following
+                        </a>
+                    </li>
+                </ul>
+            }
+            else
+            {
+                <ul class="profile__meta">
+                    <li><strong>@Model.PostCount</strong> posts</li>
+                    <li><strong>@Model.FollowerCount</strong> followers</li>
+                    <li><strong>@Model.FollowingCount</strong> following</li>
+                </ul>
+            }
         </div>
     </div>
 
@@ -46,7 +68,7 @@
                 @foreach (var post in Model.User.Posts.OrderByDescending(p => p.Timestamp))
                 {
                     <li>
-                        <a href="@Url.Action("Details", "Post", new { id = post.Id })" 
+                        <a href="@Url.Action("Details", "Post", new { id = post.Id })"
                            class="modal-link"
                            data-ajax-url="@Url.Action("Details", "Post", new { id = post.Id })"
                            data-ajax-method="get">

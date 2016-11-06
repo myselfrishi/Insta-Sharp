@@ -18,6 +18,7 @@ namespace InstaSharp.Controllers
                 return Redirect("~/");
 
             var s = search.ToLower();
+            ViewBag.Search = search;
 
             // Fetch profiles that match by user name, email or real name.
             // Work will need to be done to ensure privacy settings are taken into account, 

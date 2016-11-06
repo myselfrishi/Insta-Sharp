@@ -1,6 +1,7 @@
 ﻿using InstaSharp.Data.Context;
 using InstaSharp.Data.Models;
 using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
@@ -103,6 +104,34 @@ namespace InstaSharp.Services
         {
             return await _ctx.Following.Where(f => f.UserFollowing.UserName == userName).CountAsync();
         }
+
+        /// <summary>
+        /// Get a list of all the users the provided user is being followed by.
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="_ctx"></param>
+        /// <returns></returns>
+        public async Task<List<ApplicationUser>> GetFollowers(string userName, InstaDbContext _ctx)
+        {
+            return await _ctx.Following
+                .Where(f => f.UserFollowed.UserName == userName)
+                .Select(f => f.UserFollowing)
+                .ToListAsync();
+        }
+
+        /// <summary>
+        /// Get a list of all the users the user provided is following
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="_ctx"></param>
+        /// <returns></returns>
+        public async Task<List<ApplicationUser>> GetFollowing(string userName, InstaDbContext _ctx)
+        {
+            return await _ctx.Following
+                .Where(f => f.UserFollowing.UserName == userName)
+                .Select(f => f.UserFollowed)
+                .ToListAsync();
+        }
     }
 
     public interface IFollowService
@@ -112,5 +141,7 @@ namespace InstaSharp.Services
         Task<bool> IsFollowing(string followerName, string followedName, InstaDbContext _ctx);
         Task<int> FollowerCount(string userName, InstaDbContext _ctx);
         Task<int> FollowingCount(string userName, InstaDbContext _ctx);
+        Task<List<ApplicationUser>> GetFollowers(string userName, InstaDbContext _ctx);
+        Task<List<ApplicationUser>> GetFollowing(string userName, InstaDbContext _ctx);
     }
 }
